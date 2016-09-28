@@ -36,3 +36,18 @@ switch(userAction) {
   default:
   alert("Please choose an action from the list!");
 }
+
+// Tried mortgage calculator
+
+// var deposit = prompt("How much is your deposit?");
+// var yearlyRate = prompt("What is your yearly interest rate?");
+// var payments = prompt("How many payments will you make?");
+//
+// var monthlyRate = ((yearlyRate / 12) / 100);
+//
+// var a = monthlyRate * Math.pow((1 + monthlyRate), payments);
+// var b = (Math.pow((1 + monthlyRate), payments)) - 1;
+//
+// monthlyPayment = deposit * (a + b);
+//
+// alert(monthlyPayment);
