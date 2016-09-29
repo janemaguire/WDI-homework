@@ -7,6 +7,7 @@ function calculate(e) {
   var input1 = document.getElementById("input1").value;
   var operator = document.getElementById("operator").value;
   var input2 = document.getElementById("input2").value;
+  var form = document.getElementById("form")
 
 switch (operator) {
 
@@ -30,3 +31,6 @@ switch (operator) {
 
 document.getElementById("output").innerHTML = answer;
 }
+
+document.getElementById("reset").addEventListener("click", reset);
+document.getElementById("myForm").reset();

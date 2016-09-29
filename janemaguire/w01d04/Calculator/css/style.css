@@ -55,3 +55,7 @@ h1 {
   color: white;
   padding:10px;
 }
+
+#reset {
+  display: inline-block;
+}
