@@ -11,20 +11,22 @@ function calculate(e) {
 switch (operator) {
 
   case "+":
-  console.log((parseFloat(input1)) + parseFloat(input2));
+  var answer = ((parseFloat(input1)) + parseFloat(input2));
   break;
 
   case "-":
-  console.log((parseFloat(input1)) - parseFloat(input2));
-  break;
-
-  case "*":
-  console.log((parseFloat(input1)) * parseFloat(input2));
+  var answer = ((parseFloat(input1)) - parseFloat(input2));
   break;
 
   case "/":
-  console.log((parseFloat(input1)) / parseFloat(input2));
+  var answer = ((parseFloat(input1)) / parseFloat(input2));
   break;
+
+  case "*":
+  var answer = ((parseFloat(input1)) * parseFloat(input2));
+  break;
+
 }
 
+document.getElementById("output").innerHTML = answer;
 }
