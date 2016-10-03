@@ -15,12 +15,15 @@
 
 // Put event listener on first tile and play correct music
 
-var work_it = document.getElementById('work_it');
-var button = document.getElementById('work_it');
+// Get audio
+// Get button
+// Put event listener on button
+// Make function
 
-button.addEventListener("click", function() {
+var playWorkIt = document.getElementById("workit");
+var button  =  document.getElementById("1");
 
-work_it.src = "/sounds/work_it.wav";
-document.work_it.play();
-
-  });
+button.addEventListener("click", function (){
+  playWorkIt.src = "sounds/work_it.wav";
+  playWorkIt.play();
+});
