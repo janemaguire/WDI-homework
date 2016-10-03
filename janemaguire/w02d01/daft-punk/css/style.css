@@ -1,0 +1,20 @@
+ol {
+  list-style: none;
+  margin: auto;
+  width: 460px;
+  height: 460px;
+  background: black;
+  padding: 20px;
+}
+
+ol li {
+  display: inline-block;
+  width: 100px;
+  line-height: 100px;
+  border: white 5px solid;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+
+}
