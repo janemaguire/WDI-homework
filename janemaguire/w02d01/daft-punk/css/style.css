@@ -1,4 +1,4 @@
-ol {
+.wrapper {
   list-style: none;
   margin: auto;
   width: 460px;
@@ -7,7 +7,7 @@ ol {
   padding: 20px;
 }
 
-ol li {
+.tile {
   display: inline-block;
   width: 100px;
   line-height: 100px;
