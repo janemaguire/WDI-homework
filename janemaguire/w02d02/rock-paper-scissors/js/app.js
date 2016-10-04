@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   paperButton.addEventListener("click", function(){
       userChoice = "paper";
+      var randomIndex = Math.floor(Math.random() * choices.length);
+      compChoice = choices[randomIndex];
       if (compChoice === "paper") {
         status.innerHTML = "Computer chose paper, it's a draw";
       } else if (compChoice === "scissors") {
@@ -49,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   scissorsButton.addEventListener("click", function(){
       userChoice = "scissors";
+      var randomIndex = Math.floor(Math.random() * choices.length);
+      compChoice = choices[randomIndex];
       if (compChoice === "scissors") {
         status.innerHTML = "Computer chose scissors, it's a draw";
       } else if (compChoice === "rock") {
@@ -62,7 +66,5 @@ document.addEventListener("DOMContentLoaded", function () {
       userScoreBoard.innerHTML = userScore;
       computerScoreBoard.innerHTML = compScore;
     });
-
-
 
   });
