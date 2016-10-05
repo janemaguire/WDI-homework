@@ -1,12 +1,8 @@
 $(function(){
 
   var $ol = $('ol');
-  var $tweets = $('.tweets');
 
   $.each(window.tweets, function(i, tweet){
-    console.log(i);
-    console.log(tweet);
-    // $ol.append( '<li>' + tweet.user_thumbnail + '</li>' + '<li>' + tweet.name + '</li>' + '<li>' + '@' + tweet.screen_name + '</li>' + '<li>' + tweet.text + '</li>' );
 
     $ol.append(
 
@@ -16,12 +12,12 @@ $(function(){
             '<img src="' + tweet.user_thumbnail + '"alt="User image goes here.">' +
           '</a>' +
           '<div class="content">' +
-            '<strong class="fullname">' + tweet.screen_name + '</strong>' +
+            '<strong class="fullname">' + tweet.name + ' ' + '</strong>' +
             '<span>&rlm;</span>' +
             '<span>@</span><b>' + tweet.screen_name + '</b>' +
             '&nbsp;&middot;&nbsp;' +
-            '<small class="time">' +
-              '11m' +
+            '<small class="time">' + tweet.created_at +
+              ' 11m' +
             '</small>' +
             '<p>' + tweet.text + '</p>' +
           '</div>' +
@@ -32,4 +28,40 @@ $(function(){
 
   });
 
+// var $input = $('#new-tweet-input');
+// if ($input.text() !== '' ) {
+
+
+
+  $("#button").on("click", function(event) {
+    event.preventDefault();
+    var $thumbnail = $('#thumbnail');
+    var $input = $('#new-tweet-input');
+    var $name = $('#user-name');
+    var $screen_name = $('#screen-name');
+
+    $ol.prepend(
+
+      '<li class="stream-item">' +
+        '<div class="tweet">' +
+          '<a href="#">' +
+            '<img src="http://facehoff.herokuapp.com/50/50"' + $thumbnail + '"alt="User image goes here.">' +
+          '</a>' +
+          '<div class="content">' +
+            '<strong class="fullname">' + $name.text() + ' ' + '</strong>' +
+            '<span>&rlm;</span>' +
+            '<span>@</span><b>' + $screen_name.text() + '</b>' +
+            '&nbsp;&middot;&nbsp;' +
+            '<small class="time">' +
+              '11m' +
+            '</small>' +
+            '<p>' + $input.val() + '</p>' +
+          '</div>' +
+        '</div>' +
+      '</li>'
+    );
+$input.val('');
+
+  });
+// }
 });
