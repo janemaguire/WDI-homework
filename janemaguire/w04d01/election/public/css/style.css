@@ -5,6 +5,8 @@
 h1 {
   text-align: center;
   margin-bottom: 50px;
+  color: blue;
+  font-size: 50px;
 }
 
 .card-text-white {
@@ -19,7 +21,7 @@ h1 {
   width: 500px;
 }
 
-#register {
-  display: inline-block;
-  margin: 20px auto 0px auto;
+.register {
+  margin: 50px auto 0px auto;
+  text-align: center;
 }
