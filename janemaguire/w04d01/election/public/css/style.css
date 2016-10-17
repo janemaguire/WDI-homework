@@ -1,0 +1,15 @@
+.container {
+  padding-top: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 400px;
+}
+
+.card-img {
+  width: 400px;
+}
