@@ -7,10 +7,19 @@ h1 {
   margin-bottom: 50px;
 }
 
-.card-img-top {
-  width: 350px;
+.card-text-white {
+  color: white;
 }
 
 .card-img {
   width: 350px;
+}
+
+.card-img-top {
+  width: 500px;
+}
+
+#register {
+  display: inline-block;
+  margin: 20px auto 0px auto;
 }
