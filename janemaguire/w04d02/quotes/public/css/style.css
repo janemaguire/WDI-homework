@@ -10,3 +10,14 @@ h1 {
   background-color: purple;
   border-color: purple;
 }
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h4 {
+  color: purple;
+  font-weight: normal;
+  font-style: italic;
+}

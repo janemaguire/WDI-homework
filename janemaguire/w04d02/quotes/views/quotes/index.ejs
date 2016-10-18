@@ -6,6 +6,23 @@
       <p>
         Quotes are great
       </p>
+
+      <% for(var i=0; i<quotes.length; i++) { %>
+        <div>
+          <h3><%= quotes[i]['text'] %></h3>
+            <h4><%= quotes[i]['name'] %></h4>
+            <br>
+            <a class="btn" href="/quotes/<%= quotes[i].id %>/edit">Edit</a>
+            <form method="post" action="/quotes/<%= quotes[i].id %>">
+              <input type="hidden" name="_method" value="delete">
+              <input class="btn" type="submit" value="Delete">
+            </form>
+            <br>
+            <br>
+
+        </div>
+      <% } %>
+
     </body>
   </main>
 </html>
