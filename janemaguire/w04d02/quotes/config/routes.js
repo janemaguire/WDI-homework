@@ -1,7 +1,19 @@
+const express = require("express");
 const router = require('express').Router();
+const quotesController = require("../controllers/quotesController");
 
-router.get('/', (req, res) => res.render('index'));
+// root path
+router.get("/", (req, res) => {
+  res.redirect(302, "/quotes");
+});
 
-router.get('/new', (req, res) => res.render('new'));
+// Restful routes
+
+// INDEX
+router.route("/quotes")
+  .get(quotesController.index);
+
+// NEW
+router.get('/quotes/new', (req, res) => res.render('quotes/new'));
 
 module.exports = router;
