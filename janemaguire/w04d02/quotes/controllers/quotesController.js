@@ -24,10 +24,9 @@ const quotesShow = (req, res) => {
 
 const quotesCreate = (req, res) => {
   let quote = req.body.quote;
-  quote.id = id;
+  quote.id = quotes.length;
   quotes.push(quote);
-  id ++;
-  res.redirect(301, '/quotes');
+  res.redirect(302, "/quotes");
 };
 
 // EDIT
