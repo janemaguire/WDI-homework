@@ -9,16 +9,23 @@ router.get("/", (req, res) => {
 
 // Restful routes
 
-// INDEX
+// INDEX, CREATE
 router.route("/quotes")
-  .get(quotesController.index);
+  .get(quotesController.index)
+  .post(quotesController.create);
 
 // NEW
 router.route("/quotes/new")
   .get(quotesController.new);
 
-// SHOW
+// SHOW, UPDATE, DELETE
 router.route("/quotes/:id")
-  .get(quotesController.show);
+  .get(quotesController.show)
+  .put(quotesController.update)
+  .delete(quotesController.delete);
+
+// EDIT
+router.route("/quotes/:id/edit")
+  .get(quotesController.edit);
 
 module.exports = router;
