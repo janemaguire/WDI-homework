@@ -14,6 +14,11 @@ router.route("/quotes")
   .get(quotesController.index);
 
 // NEW
-router.get('/quotes/new', (req, res) => res.render('quotes/new'));
+router.route("/quotes/new")
+  .get(quotesController.new);
+
+// SHOW
+router.route("/quotes/:id")
+  .get(quotesController.show);
 
 module.exports = router;

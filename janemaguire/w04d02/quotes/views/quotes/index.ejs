@@ -2,23 +2,28 @@
 <html>
   <main class="container">
     <body>
-      <h2>quotes</h2>
+
       <p>
-        Quotes are great
+        Aren't quotes great? Let's read some.
       </p>
+      <br>
+      <br>
 
       <% for(var i=0; i<quotes.length; i++) { %>
         <div>
-          <h3><%= quotes[i]['text'] %></h3>
+          <a href="/quotes/<%= quotes[i].id %>"><h3><%= quotes[i]['text'] %></h3></a>
             <h4><%= quotes[i]['name'] %></h4>
             <br>
-            <a class="btn" href="/quotes/<%= quotes[i].id %>/edit">Edit</a>
-            <form method="post" action="/quotes/<%= quotes[i].id %>">
-              <input type="hidden" name="_method" value="delete">
-              <input class="btn" type="submit" value="Delete">
-            </form>
-            <br>
-            <br>
+            <div class="buttons">
+              <a class="btn btn-primary" href="/quotes/<%= quotes[i].id %>/edit">Edit</a>
+
+              <form action="/quotes/<%= quotes[i].id %>" method="post" class="delete">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-primary">Delete</button>
+              </form>
+              <br>
+              <br>
+            </div>
 
         </div>
       <% } %>

@@ -10,7 +10,18 @@ const quotesNew = (req, res) => {
   res.render('quotes/new');
 };
 
+// SHOW
+const quotesShow = (req, res) => {
+
+  let quote = quotes.filter((quote) => {
+    return quote.id == req.params.id;
+  })[0];
+
+  res.render('quotes/show', { quote });
+};
+
 module.exports = {
   index: quotesIndex,
-  new: quotesNew
+  new: quotesNew,
+  show: quotesShow
 };

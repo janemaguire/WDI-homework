@@ -21,3 +21,13 @@ h4 {
   font-weight: normal;
   font-style: italic;
 }
+
+.btn {
+  display: inline;
+  background-color: purple;
+  border-color: purple;
+}
+
+form.delete {
+  display: inline;
+}
