@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressLayouts);
 
-mongoose.connect("mongodb://localhost/quotes-app");
+mongoose.connect("mongodb://localhost/tindersaurus");
 
 app.use('/', router);
 
