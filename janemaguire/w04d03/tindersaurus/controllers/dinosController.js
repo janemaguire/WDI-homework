@@ -45,11 +45,19 @@ function dinosUpdate(req, res) {
   });
 }
 
+function dinosDelete(req, res) {
+  Dino.findByIdAndRemove(req.params.id, (err) => {
+    if(err) return res.status(500).send("500: Server Error");
+    res.redirect(301, '/dinos');
+  });
+}
+
 module.exports = {
     index: dinosIndex,
     new: dinosNew,
     create: dinosCreate,
     show: dinosShow,
     edit: dinosEdit,
-    update: dinosUpdate
+    update: dinosUpdate,
+    delete: dinosDelete
 };

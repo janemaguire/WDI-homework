@@ -9,5 +9,6 @@ router.post('/dinos', dinosController.create);
 router.get('/dinos/:id', dinosController.show);
 router.get('/dinos/:id/edit', dinosController.edit);
 router.put('/dinos/:id', dinosController.update);
+router.delete('/dinos/:id', dinosController.delete);
 
 module.exports = router;
