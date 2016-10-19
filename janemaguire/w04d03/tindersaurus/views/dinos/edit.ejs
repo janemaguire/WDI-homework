@@ -1,6 +1,7 @@
 <h1>Edit Dinosaur</h1>
 
-<form action="/dinos" method="post">
+<form action="/dinos/<%= dino.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
     <label for="dino_name">Name</label>
     <input type="text" name="dino[name]" id="dino_name" value="<%= dino.name %>">
     <label for="dino_age">Age</label>

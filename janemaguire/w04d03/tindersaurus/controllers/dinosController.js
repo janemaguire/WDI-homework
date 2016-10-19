@@ -37,11 +37,19 @@ function dinosEdit(req, res) {
   });
 }
 
+// UPDATE
+function dinosUpdate(req, res) {
+  Dino.findByIdAndUpdate(req.params.id, req.body.dino, (err, dino) => {
+    if(err) return res.status(500).send("500: Server Error");
+    res.redirect(301, `/dinos/${dino.id}`);
+  });
+}
 
 module.exports = {
     index: dinosIndex,
     new: dinosNew,
     create: dinosCreate,
     show: dinosShow,
-    edit: dinosEdit
+    edit: dinosEdit,
+    update: dinosUpdate
 };
