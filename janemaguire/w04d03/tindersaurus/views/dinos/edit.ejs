@@ -1,0 +1,14 @@
+<h1>Edit Dinosaur</h1>
+
+<form action="/dinos" method="post">
+    <label for="dino_name">Name</label>
+    <input type="text" name="dino[name]" id="dino_name" value="<%= dino.name %>">
+    <label for="dino_age">Age</label>
+    <input type="text" name="dino[age]" id="dino_age" value="<%= dino.age %>">
+    <label for="dino_species">Species</label>
+    <input type="text" name="dino[species]" id="dino_species" value="<%= dino.species %>">
+    <label for="dino_image">Image</label>
+    <input type="text" name="dino[image]" id="dino_image" value="<%= dino.image %>">
+    <input type="submit" value="Update">
+
+</form>

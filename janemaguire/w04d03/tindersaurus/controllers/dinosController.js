@@ -29,9 +29,19 @@ function dinosShow(req, res) {
   });
 }
 
+// EDIT
+function dinosEdit(req, res) {
+  Dino.findById(req.params.id, (err, dino) => {
+    if(err) return res.status(500).send("500: Server Error");
+    res.render('dinos/edit', { dino });
+  });
+}
+
+
 module.exports = {
     index: dinosIndex,
     new: dinosNew,
     create: dinosCreate,
-    show: dinosShow
+    show: dinosShow,
+    edit: dinosEdit
 };

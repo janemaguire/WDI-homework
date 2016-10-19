@@ -7,5 +7,6 @@ router.get('/dinos', dinosController.index);
 router.get('/dinos/new', dinosController.new);
 router.post('/dinos', dinosController.create);
 router.get('/dinos/:id', dinosController.show);
+router.get('/dinos/:id/edit', dinosController.edit);
 
 module.exports = router;
