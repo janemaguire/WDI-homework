@@ -6,5 +6,6 @@ const dinosController = require('../controllers/dinosController.js');
 router.get('/dinos', dinosController.index);
 router.get('/dinos/new', dinosController.new);
 router.post('/dinos', dinosController.create);
+router.get('/dinos/:id', dinosController.show);
 
 module.exports = router;
