@@ -22,7 +22,7 @@ function usersShow(req, res) {
 }
 
 function usersUpdate(req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
         if(err) res.status(500).json({ error: err});
         res.json(user);
     });

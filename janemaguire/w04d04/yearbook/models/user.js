@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-  name: String,
-  github: String,
+  name: { type:String, required:true },
+  github: { type:String, unique:true },
   image: String,
   bio: String,
   portfolio: String,
