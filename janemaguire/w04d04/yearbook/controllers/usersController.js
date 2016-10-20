@@ -31,7 +31,7 @@ function usersUpdate(req, res) {
 function usersDelete(req, res) {
     User.findByIdAndRemove(req.params.id, (err) => {
         if(err) res.status(500).json({ error: err});
-        res.send(204);
+        res.sendStatus(204);
     });
 }
 
