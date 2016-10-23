@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const songSchema= mongoose.Schema ({
-  name: { type: String, trim: true, require: true, unique: true },
+  name: { type: String, trim: true, require: true },
   writers: { type: [String], trim: true },
   chart: { type: Number, trim: true }
 
