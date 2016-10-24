@@ -29,8 +29,15 @@ $(() => {
 
   });
 
-  $.get("http://localhost:3000/api/restaurants").done(data => {
-    console.log(data.restaurants);
-  });
+  var googleMap = googleMap || {};
 
+  // googleMap.getCameras   = function () {
+  //   $.get("http://localhost:3000/cameras")
+  //     .done(this.loopThroughCameras);
+  //   };
+    googleMap.getRestaurants = function () {
+    $.get("http://localhost:3000/api/restaurants").done(data => {
+      console.log(data.restaurants);
+    });
+  };
 });
