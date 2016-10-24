@@ -38,15 +38,7 @@
 var googleMap = googleMap || {};
 
 googleMap.getRestaurants = function () {
-  $.get('http://localhost:3000/api/restaurants').done(googleMap.loopThroughCameras = function (data) {
-    $.each(data.restaurants, function (index, restaurant) {
-      console.log(restaurant);
-    });
-  });
-
-  googleMap.getRestaurants = function () {
-    $.get("http://localhost:3000/cameras").done(this.loopThroughRestaurants);
-  };
+  $.get("http://localhost:3000/api/restaurants").done(this.loopThroughRestaurants);
 };
 
 googleMap.mapSetup = function () {
@@ -60,6 +52,20 @@ googleMap.mapSetup = function () {
 
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getRestaurants();
+};
+
+googleMap.createMarkerForRestaurant = function (restaurant) {
+  var latlng = new google.maps.LatLng(restaurant.lat, restaurant.lng);
+  var marker = new google.maps.Marker({
+    position: latlng,
+    map: googleMap.map
+  });
+};
+
+googleMap.loopThroughRestaurants = function (data) {
+  $.each(data.restaurants, function (index, restaurant) {
+    googleMap.createMarkerForRestaurant(restaurant);
+  });
 };
 
 $(googleMap.mapSetup.bind(googleMap));

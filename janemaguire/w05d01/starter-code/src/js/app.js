@@ -35,30 +35,38 @@
 
 const googleMap = googleMap || {};
 
-googleMap.getRestaurants = function() {
-  $.get('http://localhost:3000/api/restaurants')
-    .done(googleMap.loopThroughCameras = (data) => {
-      $.each(data.restaurants, (index, restaurant) => {
-        console.log(restaurant);
-  });
-});
 
-googleMap.getRestaurants = function () {
-  $.get("http://localhost:3000/cameras").done(this.loopThroughRestaurants);
-  };
-};
 
-googleMap.mapSetup = function () {
-  let canvas = document.getElementById("map");
-
-  let mapOptions = {
-    zoom: 12,
-    center: new google.maps.LatLng(51.506178, -0.088369),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+  googleMap.getRestaurants = function () {
+    $.get("http://localhost:3000/api/restaurants")
+      .done(this.loopThroughRestaurants);
   };
 
-  this.map = new google.maps.Map(canvas, mapOptions);
-  this.getRestaurants();
-};
+  googleMap.mapSetup = function () {
+    let canvas = document.getElementById("map");
+
+    let mapOptions = {
+      zoom: 12,
+      center: new google.maps.LatLng(51.506178, -0.088369),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(canvas, mapOptions);
+    this.getRestaurants();
+  };
+
+  googleMap.createMarkerForRestaurant = (restaurant) => {
+    let latlng = new google.maps.LatLng(restaurant.lat, restaurant.lng);
+    let marker = new google.maps.Marker({
+      position: latlng,
+      map: googleMap.map
+    });
+  };
+
+  googleMap.loopThroughRestaurants = (data) => {
+    $.each(data.restaurants, (index, restaurant) => {
+      googleMap.createMarkerForRestaurant(restaurant);
+    });
+  };
 
 $(googleMap.mapSetup.bind(googleMap));
