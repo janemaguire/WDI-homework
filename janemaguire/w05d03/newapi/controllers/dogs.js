@@ -25,6 +25,7 @@ function dogsShow(req, res) {
 }
 
 function dogsUpdate(req, res) {
+  console.log("dogs update");
   Dog.findByIdAndUpdate(req.params.id, req.body, { new: true },  (err, dog) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     if (!dog) return res.status(404).json({ message: "User not found." });

@@ -34,7 +34,7 @@ $(function () {
 
   function showEditForm(dog) {
     if (event) event.preventDefault();
-    $main.html('\n      <h2>Edit User</h2>\n      <form method="put" action="/dogs/' + dog._id + '">\n        <div class="form-group">\n          <input class="form-control" name="username" placeholder="Username" value="' + dog.name + '">\n        </div>\n        <button class="btn btn-primary">Update</button>\n      </form>\n    ');
+    $main.html('\n      <h2>Edit Dog</h2>\n      <form method="put" action="/dogs/' + dog._id + '">\n        <div class="form-group">\n          <input class="form-control" name="name" placeholder="Name" value="' + dog.name + '">\n          <input class="form-control" name="breed" placeholder="Breed" value="' + dog.breed + '">\n          <input class="form-control" name="age" placeholder="Age" value="' + dog.age + '">\n        </div>\n        <button class="btn btn-primary">Update</button>\n      </form>\n    ');
   }
 
   function handleForm() {
@@ -56,6 +56,7 @@ $(function () {
     }).done(function (data) {
       if (data.token) localStorage.setItem('token', data.token);
       getDogs();
+      console.log(data);
     }).fail(showLoginForm);
   }
 

@@ -61,10 +61,12 @@ $(() =>{
   function showEditForm(dog) {
     if(event) event.preventDefault();
     $main.html(`
-      <h2>Edit User</h2>
+      <h2>Edit Dog</h2>
       <form method="put" action="/dogs/${dog._id}">
         <div class="form-group">
-          <input class="form-control" name="username" placeholder="Username" value="${dog.name}">
+          <input class="form-control" name="name" placeholder="Name" value="${dog.name}">
+          <input class="form-control" name="breed" placeholder="Breed" value="${dog.breed}">
+          <input class="form-control" name="age" placeholder="Age" value="${dog.age}">
         </div>
         <button class="btn btn-primary">Update</button>
       </form>
@@ -90,6 +92,7 @@ $(() =>{
     }).done((data) => {
       if(data.token) localStorage.setItem('token', data.token);
       getDogs();
+      console.log(data);
     }).fail(showLoginForm);
   }
 
