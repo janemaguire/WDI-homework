@@ -5,7 +5,7 @@ $(() =>{
   $('.register').on('click', showRegisterForm);
   $('.login').on('click', showLoginForm);
   $main.on('submit', 'form', handleForm);
-  $main.on('click', 'button.delete', deleteUser);
+  $main.on('click', 'button.delete', deleteDog);
   $main.on('click', 'button.edit', getDog);
   $('.usersIndex').on('click', getDogs);
   $('.logout').on('click', logout);
@@ -132,18 +132,18 @@ $(() =>{
     $main.html($row);
   }
 
-  function deleteUser() {
+  function deleteDog() {
     let id = $(this).data('id');
     let token = localStorage.getItem('token');
 
     $.ajax({
-      url: `/api/users/${id}`,
+      url: `/dogs/${id}`,
       method: "DELETE",
       beforeSend: function(jqXHR) {
         if(token) return jqXHR.setRequestHeader('Authorization', `Bearer ${token}`);
       }
     })
-    .done(getUsers)
+    .done(getDogs)
     .fail(showLoginForm);
   }
 
