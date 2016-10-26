@@ -8,8 +8,8 @@ $(function () {
   $('.login').on('click', showLoginForm);
   $main.on('submit', 'form', handleForm);
   $main.on('click', 'button.delete', deleteUser);
-  $main.on('click', 'button.edit', getUser);
-  $('.usersIndex').on('click', getUsers);
+  $main.on('click', 'button.edit', getDog);
+  $('.usersIndex').on('click', getDogs);
   $('.logout').on('click', logout);
 
   function isLoggedIn() {
@@ -17,7 +17,7 @@ $(function () {
   }
 
   if (isLoggedIn()) {
-    getUsers();
+    getDogs();
   } else {
     showLoginForm();
   }
@@ -29,12 +29,12 @@ $(function () {
 
   function showLoginForm() {
     if (event) event.preventDefault();
-    $main.html('\n      <h2>Login</h2>\n      <form method="post" action="/login">\n        <div class="form-group">\n          <input class="form-control" name="email" placeholder="Email">\n        </div>\n        <div class="form-group">\n          <input class="form-control" type="password" name="password" placeholder="Password">\n        </div>\n        <button class="btn btn-primary">Register</button>\n      </form>\n    ');
+    $main.html('\n      <h2>Login</h2>\n      <form method="post" action="/login">\n        <div class="form-group">\n          <input class="form-control" name="email" placeholder="Email">\n        </div>\n        <div class="form-group">\n          <input class="form-control" type="password" name="password" placeholder="Password">\n        </div>\n        <button class="btn btn-primary">Login</button>\n      </form>\n    ');
   }
 
-  function showEditForm(user) {
+  function showEditForm(dog) {
     if (event) event.preventDefault();
-    $main.html('\n      <h2>Edit User</h2>\n      <form method="put" action="/user/' + user._id + '">\n        <div class="form-group">\n          <input class="form-control" name="username" placeholder="Username" value="' + user.username + '">\n        </div>\n        <button class="btn btn-primary">Update</button>\n      </form>\n    ');
+    $main.html('\n      <h2>Edit User</h2>\n      <form method="put" action="/dogs/' + dog._id + '">\n        <div class="form-group">\n          <input class="form-control" name="username" placeholder="Username" value="' + dog.name + '">\n        </div>\n        <button class="btn btn-primary">Update</button>\n      </form>\n    ');
   }
 
   function handleForm() {
@@ -55,28 +55,27 @@ $(function () {
       }
     }).done(function (data) {
       if (data.token) localStorage.setItem('token', data.token);
-      getUsers();
-      console.log(data);
+      getDogs();
     }).fail(showLoginForm);
   }
 
-  function getUsers() {
+  function getDogs() {
     if (event) event.preventDefault();
 
     var token = localStorage.getItem('token');
     $.ajax({
-      url: '/api/users',
+      url: '/dogs',
       method: "GET",
       beforeSend: function beforeSend(jqXHR) {
         if (token) return jqXHR.setRequestHeader('Authorization', 'Bearer ' + token);
       }
-    }).done(showUsers).fail(showLoginForm);
+    }).done(showDogs).fail(showLoginForm);
   }
 
-  function showUsers(users) {
+  function showDogs(dogs) {
     var $row = $('<div class="row"></div>');
-    users.forEach(function (user) {
-      $row.append('\n        <div class="col-md-4">\n          <div class="card">\n            <img class="card-img-top" src="http://fillmurray.com/300/300" alt="Card image cap">\n            <div class="card-block">\n              <h4 class="card-title">' + user.username + '</h4>\n            </div>\n          </div>\n          <button class="btn btn-danger delete" data-id="' + user._id + '">Delete</button>\n          <button class="btn btn-primary edit" data-id="' + user._id + '">Edit</button>\n        </div>\n      ');
+    dogs.forEach(function (dog) {
+      $row.append('\n        <div class="col-md-4">\n          <div class="card">\n            <img class="card-img-top" src="https://s-media-cache-ak0.pinimg.com/originals/cf/63/54/cf6354ef04148220314dc3610d8f8cdd.jpg" alt="Card image cap">\n            <div class="card-block">\n              <h4 class="card-title">' + dog.name + '</h4>\n              <p class="card-text">' + dog.breed + ', ' + dog.age + '</p>\n            </div>\n          </div>\n          <button class="btn btn-danger delete" data-id="' + dog._id + '">Delete</button>\n          <button class="btn btn-primary edit" data-id="' + dog._id + '">Edit</button>\n        </div>\n      ');
     });
 
     $main.html($row);
@@ -95,12 +94,12 @@ $(function () {
     }).done(getUsers).fail(showLoginForm);
   }
 
-  function getUser() {
+  function getDog() {
     var id = $(this).data('id');
     var token = localStorage.getItem('token');
 
     $.ajax({
-      url: '/api/users/' + id,
+      url: '/dogs/' + id,
       method: "GET",
       beforeSend: function beforeSend(jqXHR) {
         if (token) return jqXHR.setRequestHeader('Authorization', 'Bearer ' + token);

@@ -6,8 +6,8 @@ $(() =>{
   $('.login').on('click', showLoginForm);
   $main.on('submit', 'form', handleForm);
   $main.on('click', 'button.delete', deleteUser);
-  $main.on('click', 'button.edit', getUser);
-  $('.usersIndex').on('click', getUsers);
+  $main.on('click', 'button.edit', getDog);
+  $('.usersIndex').on('click', getDogs);
   $('.logout').on('click', logout);
 
   function isLoggedIn() {
@@ -15,7 +15,7 @@ $(() =>{
   }
 
   if(isLoggedIn()) {
-    getUsers();
+    getDogs();
   } else {
     showLoginForm();
   }
@@ -53,18 +53,18 @@ $(() =>{
         <div class="form-group">
           <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-primary">Login</button>
       </form>
     `);
   }
 
-  function showEditForm(user) {
+  function showEditForm(dog) {
     if(event) event.preventDefault();
     $main.html(`
       <h2>Edit User</h2>
-      <form method="put" action="/user/${user._id}">
+      <form method="put" action="/dogs/${dog._id}">
         <div class="form-group">
-          <input class="form-control" name="username" placeholder="Username" value="${user.username}">
+          <input class="form-control" name="username" placeholder="Username" value="${dog.name}">
         </div>
         <button class="btn btn-primary">Update</button>
       </form>
@@ -89,39 +89,39 @@ $(() =>{
       }
     }).done((data) => {
       if(data.token) localStorage.setItem('token', data.token);
-      getUsers();
-      console.log(data);
+      getDogs();
     }).fail(showLoginForm);
   }
 
-  function getUsers() {
+  function getDogs() {
     if(event) event.preventDefault();
 
     let token = localStorage.getItem('token');
     $.ajax({
-      url: '/api/users',
+      url: '/dogs',
       method: "GET",
       beforeSend: function(jqXHR) {
         if(token) return jqXHR.setRequestHeader('Authorization', `Bearer ${token}`);
       }
     })
-    .done(showUsers)
+    .done(showDogs)
     .fail(showLoginForm);
   }
 
-  function showUsers(users) {
+  function showDogs(dogs) {
     let $row = $('<div class="row"></div>');
-    users.forEach((user) => {
+    dogs.forEach((dog) => {
       $row.append(`
         <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top" src="http://fillmurray.com/300/300" alt="Card image cap">
+            <img class="card-img-top" src="https://s-media-cache-ak0.pinimg.com/originals/cf/63/54/cf6354ef04148220314dc3610d8f8cdd.jpg" alt="Card image cap">
             <div class="card-block">
-              <h4 class="card-title">${user.username}</h4>
+              <h4 class="card-title">${dog.name}</h4>
+              <p class="card-text">${dog.breed}, ${dog.age}</p>
             </div>
           </div>
-          <button class="btn btn-danger delete" data-id="${user._id}">Delete</button>
-          <button class="btn btn-primary edit" data-id="${user._id}">Edit</button>
+          <button class="btn btn-danger delete" data-id="${dog._id}">Delete</button>
+          <button class="btn btn-primary edit" data-id="${dog._id}">Edit</button>
         </div>
       `);
     });
@@ -144,12 +144,12 @@ $(() =>{
     .fail(showLoginForm);
   }
 
-  function getUser() {
+  function getDog() {
     let id = $(this).data('id');
     let token = localStorage.getItem('token');
 
     $.ajax({
-      url: `/api/users/${id}`,
+      url: `/dogs/${id}`,
       method: "GET",
       beforeSend: function(jqXHR) {
         if(token) return jqXHR.setRequestHeader('Authorization', `Bearer ${token}`);
