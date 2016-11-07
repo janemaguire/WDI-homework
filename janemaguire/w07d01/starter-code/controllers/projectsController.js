@@ -36,7 +36,7 @@ function projectsUpdate(req, res) {
 function projectsDelete(req, res) {
   Project.findByIdAndRemove(req.params.id, (err) => {
     if(err) return res.status(500).json({ error: err });
-    return res.send(204);
+    res.sendStatus(204);
   });
 }
 

@@ -142,3 +142,35 @@ describe("PUT /projects/:id", () => {
         });
     });
 });
+
+describe("DELETE /projects/:id", () => {
+  beforeEach(done => {
+    Project.collection.drop();
+    Project.create({
+      title: 'Excellente',
+      github: 'http://github.com/excellente',
+      url: 'http://excellente.herokuapp.com',
+      users: ["5820b539ea481a8708720eae"]
+    },(err, project) => {
+      projectId = project._id;
+      done();
+    });
+  });
+
+  it("should return a 204 response", (done) => {
+    api.delete(`/projects/${projectId}`)
+      .set('Accept', 'application/json')
+      .expect(204, done);
+  });
+
+  it("should have actually deleted the project", (done) => {
+    api.delete(`/projects/${projectId}`)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        Project.find((err, projects) => {
+          expect(projects.length).to.equal(0);
+          done();
+        });
+      });
+  });
+});
