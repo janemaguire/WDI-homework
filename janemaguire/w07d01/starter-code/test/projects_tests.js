@@ -96,5 +96,49 @@ describe("POST /projects", () => {
         done();
       });
     });
+});
 
+describe("PUT /projects/:id", () => {
+
+  let projectId = null;
+
+  beforeEach(done => {
+    Project.collection.drop();
+    Project.create({
+      title: 'Excellente',
+      github: 'http://github.com/excellente',
+      url: 'http://excellente.herokuapp.com',
+      users: ["5820b539ea481a8708720eae"]
+    },(err, project) => {
+      projectId = project._id;
+      done();
+    });
+  });
+
+  it("should return a 200 response", (done) => {
+    api.put(`/projects/${projectId}`)
+      .set('Accept', 'application/json')
+      .send({
+        title: 'Fabulouso',
+        github: 'http://github.com/fabulouso',
+        url: 'http://fabulouso.herokuapp.com',
+        users: ["5820b539ea481a8708720ead"]
+      })
+      .expect(200, done);
+  });
+
+  it("should return an object", (done) => {
+    api.put(`/projects/${projectId}`)
+      .set('Accept', 'application/json')
+      .send({
+        title: 'Fabulouso',
+        github: 'http://github.com/fabulouso',
+        url: 'http://fabulouso.herokuapp.com',
+        users: ["5820b539ea481a8708720ead"]
+      })
+      .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          done();
+        });
+    });
 });
