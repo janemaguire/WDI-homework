@@ -1,6 +1,8 @@
 angular.module('TicTacToe')
   .controller('GameController', GameController);
 
+var clickCounter = 0;
+
 function GameController() {
   this.cells = [
     null,
@@ -15,7 +17,12 @@ function GameController() {
   ];
 
   function mrClick($index) {
-    this.cells[$index] = 'X';
+    clickCounter++;
+    if (clickCounter%2 === 0) {
+      this.cells[$index] = 'X';
+    } else {
+      this.cells[$index] = 'O';
+    }
   }
 
   this.mrClick = mrClick;
