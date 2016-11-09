@@ -19,10 +19,17 @@
       </li>
     </ul>
 
-    <form id="newCriminal" name="criminals.form" class="add-criminal" ng-submit="criminals.addCriminal()">
+    <form id="newCriminal" name="criminals.form" class="add-criminal" ng-submit="criminals.addCriminal()" novalidate>
       <div>
-        <label for="newCriminal-name">Name:</label>
-        <input type="text" id="newCriminal-name" ng-model="criminals.newCriminal.name" placeholder="Prof. Moriarty">
+        <label for="new-criminal-name">Name:</label>
+        <input type="text" id="newCriminal-name" placeholder="Prof. Moriarty" ng-model="criminals.newCriminal.name" name="name" required minlength="5" maxlength="20">
+
+        <div ng-messages="criminals.form.name.error" ng-show="criminals.form.name.$dirty">
+          <p ng-message="required">Name is required</p>
+          <p ng-message="minlength">Name is too short</p>
+          <p ng-message="maxlength">Name is too long</p>
+
+        </div>
       </div>
       <div>
         <label for="newCriminal-location">Location:</label>

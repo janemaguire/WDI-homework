@@ -4,7 +4,7 @@ angular.module('criminalsApp')
 CriminalsController.$inject = ['$http'];
 
 function CriminalsController($http) {
-  
+
   const criminals = this;
   criminals.all = [];
   criminals.addCriminal = addCriminal;
@@ -14,8 +14,13 @@ function CriminalsController($http) {
     $http.post('criminals', criminals.newCriminal)
     .then((res) => {
       criminals.all.push(res.data);
-      // criminals.newCriminal = {};
-      console.log(criminals.newCriminal);
+      criminals.newCriminal = {};
+
+      criminals.form.$setPristine();
+      criminals.form.$setUntouched();
+    })
+    .catch(() => {
+      console.log('Something went wrong');
     });
   }
 
