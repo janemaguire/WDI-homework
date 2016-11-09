@@ -1,1 +1,1 @@
-angular.module('criminalsApp', []);
+angular.module('criminalsApp', ['ngMessages']);
