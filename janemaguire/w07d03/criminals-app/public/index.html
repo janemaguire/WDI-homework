@@ -15,7 +15,7 @@
     <ul id="criminals">
       <li ng-repeat="criminal in criminals.all">
         <strong>{{ criminal.name }}</strong> <em>{{ criminal.location }}</em> <span class="status dead">dead</span>
-        <button class="delete" ng-click="">X</button>
+        <button class="delete" ng-click="criminals.removeCriminal(criminal._id, $index)">X</button>
       </li>
     </ul>
 
