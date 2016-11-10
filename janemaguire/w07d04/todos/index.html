@@ -12,13 +12,14 @@
 
   <body ng-controller="TodosController as todos">
     <header>
+      <h1>YOU'VE GOT {{ todos.remainingTodos().length }} THINGS TO DO!</h1>
+      <h4>{{ todos.completedTodos().length }} things completed | {{ todos.remainingTodos().length }} things remaining</h4>
+      </header>
       <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">My List</a>
         <a ui-sref-active="active" ui-sref="archive">Archives</a>
+        <a ui-sref-active="active" ui-sref="about">About</a>
       </nav>
-      <h1>YOU'VE GOT {{ todos.remainingTodos().length }} THINGS TO DO!</h1>
-      <h4>{{ todos.completedTodos().length }} things completed | {{ todos.remainingTodos().length }} things remaining</h4>
-    </header>
     <main ui-view>
     </main>
   </body>
