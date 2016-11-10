@@ -18,6 +18,7 @@ function TodosController(){
   self.deleteTodo = deleteTodo;
   self.completedTodos = completedTodos;
   self.remainingTodos = remainingTodos;
+  self.editTodo = editTodo;
 
   //function that allows us to add new todos to our todoList
   function addTodo(){
@@ -42,6 +43,10 @@ function TodosController(){
     return self.todoList.filter(function(x){
       return x.done === false;
     });
+  }
+
+  function editTodo($index) {
+    console.log(self.todoList[$index]);
   }
 
 }
