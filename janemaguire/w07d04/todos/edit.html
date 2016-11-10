@@ -1,10 +1,4 @@
-
-<form class="add-todo" ng-submit="todos.addTodo()">
-  <input class="text-box" type="text" placeholder="I need to..." ng-model="todos.text">
-  <input type="submit" class="btn btn-add" value="+">
-</form>
-
-<section class="todo-list">
+<section class="todo-list" ng-controller="TodosController as todos">
   <ul>
     <li ng-repeat="todo in todos.remainingTodos()">
       <input class="checkbox" type="checkbox" ng-model="todo.done" id="todo-{{$index}}">
@@ -12,4 +6,9 @@
       <button class="btn btn-delete" ng-click="todos.editTodo($index)">Edit</button>
     </li>
   </ul>
+
+  <form class="add-todo" ng-show="todos.editTodo" ng-submit="todos.addTodo()">
+    <input class="text-box" type="text" ng-model="todos.editTodo">
+    <input type="submit" class="btn btn-add" value="Update">
+  </form>
 </section>
