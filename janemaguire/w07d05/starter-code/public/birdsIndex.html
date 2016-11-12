@@ -1,0 +1,11 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="bird in birdsIndex.all" class="four columns">
+      <a ui-sref="birdsShow({ id: bird._id })">
+        <img ng-src="{{ bird.posterImage }}" class="u-max-full-width">
+        <h2>{{ bird.name }}</h2>
+        <h4>{{ bird.breed }}</h4>
+      </a>
+    </li>
+  </ul>
+</section>
