@@ -1,18 +1,23 @@
-<section class="row">
+<section class="new">
+  <br>
+  <p>
+    Add your bird and find them a buddy.
+  </p>
+  <br>
   <form ng-submit="birdsNew.create()">
     <div class="twelve columns">
       <label>Name</label>
-      <input type="text" name="name" placeholder="Name" ng-model="birdsNew.bird.name" class="u-full-width">
+      <input type="text" name="name" placeholder="Enter name" ng-model="birdsNew.bird.name" class="u-full-width">
     </div>
     <div class="twelve columns">
       <label>Breed</label>
-      <input type="text" name="breed" placeholder="Breed" ng-model="birdsNew.bird.breed" class="u-full-width">
+      <input type="text" name="breed" placeholder="Enter breed" ng-model="birdsNew.bird.breed" class="u-full-width">
     </div>
     <div class="twelve columns">
       <label>Image</label>
-      <input type="text" name="image" placeholder="Image" ng-model="birdsNew.bird.image" class="u-full-width">
+      <input type="text" name="image" placeholder="Enter image" ng-model="birdsNew.bird.image" class="u-full-width">
     </div>
-
-    <button>Create</button>
+    <br>
+    <button class="btn btn-primary">Create</button>
   </form>
 </section>

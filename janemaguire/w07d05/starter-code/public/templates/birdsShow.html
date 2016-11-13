@@ -1,9 +1,11 @@
-<section>
-
+<section class = "show">
+  <br>
   <h2>{{ birdsShow.bird.name }}</h2>
   <h4>{{ birdsShow.bird.breed }}</h4>
   <img ng-src="{{ birdsShow.bird.image }}">
-  <a ui-sref="birdsEdit({id: birdsShow.bird._id})">Edit</a>
-  <button ng-click="birdsShow.delete()">Delete</button>
+  <br>
+  <button ui-sref="birdsEdit({id: birdsShow.bird._id})" class="btn btn-primary">Edit</button>
+  <button ng-click="birdsShow.delete()" class="btn btn-primary">Delete</button>
+  <br>
 
 </section>
