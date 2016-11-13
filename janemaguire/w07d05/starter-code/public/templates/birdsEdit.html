@@ -1,0 +1,18 @@
+<section class="row">
+  <form ng-submit="birdsEdit.update()">
+    <div class="twelve columns">
+      <label>Title</label>
+      <input type="text" name="name" placeholder="Name" ng-model="birdsEdit.bird.name" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Director</label>
+      <input type="text" name="breed" placeholder="Breed" ng-model="birdsEdit.bird.breed" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Image</label>
+      <input type="text" name="image" placeholder="Image" ng-model="birdsEdit.bird.image" class="u-full-width">
+    </div>
+
+    <button>Update</button>
+  </form>
+</section>
