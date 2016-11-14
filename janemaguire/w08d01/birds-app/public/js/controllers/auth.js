@@ -1,5 +1,6 @@
 angular.module('birdsApp')
-    .controller('RegisterController', RegisterController);
+    .controller('RegisterController', RegisterController)
+    .controller('LoginController', LoginController);
 
 RegisterController.$inject = ['$auth', '$state'];
 function RegisterController($auth, $state) {
@@ -7,4 +8,24 @@ function RegisterController($auth, $state) {
 
   register.user = {};
 
+  function submit() {
+    $auth.signup(register.user)
+    .then(() => {
+      $state.go('login');
+    });
+  }
+  register.submit = submit;
+}
+
+LoginController.$inject = ['$auth', '$state'];
+function LoginController($auth, $state) {
+  const login = this;
+
+  function submit() {
+    $auth.login(login.credentials)
+      .then(() => {
+        $state.go('birdsIndex');
+      });
+  }
+  login.submit = submit;
 }
