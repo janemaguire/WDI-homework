@@ -27,5 +27,12 @@ function LoginController($auth, $state) {
         $state.go('birdsIndex');
       });
   }
+  function authenticate(service) {
+    $auth.authenticate(service, () => {
+      $state.go('filmsIndex');
+    });
+  }
+
+  login.authenticate = authenticate;
   login.submit = submit;
 }
