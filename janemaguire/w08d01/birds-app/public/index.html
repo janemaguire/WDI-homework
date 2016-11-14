@@ -13,23 +13,23 @@
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/birds.js" charset="utf-8"></script>
     <script src="/js/controllers/auth.js" charset="utf-8"></script>
+    <script src="/js/controllers/main.js" charset="utf-8"></script>
     <script src="/js/models/bird.js" charset="utf-8"></script>
   </head>
-  <body>
+  <body ng-controller="MainController as main">
     <header>
       <h1>Bird buddies</h1>
       <nav>
         <ul class="nav nav-tabs">
           <li class="nav-item"><a ui-sref="birdsIndex" ui-sref-active="active" class="nav-link">Birds</a></li>
-          <li class="nav-item"><a ui-sref="birdsNew" ui-sref-active="active" class="nav-link">New Bird</a></li>
-          <li class="nav-item"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
-          <li class="nav-item"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
+          <li ng-if="main.isLoggedIn()" class="nav-item"><a ui-sref="birdsNew" ui-sref-active="active" class="nav-link">New Bird</a></li>
+          <li ng-if="!main.isLoggedIn()" class="nav-item"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
+          <li ng-if="!main.isLoggedIn()" class="nav-item"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
+          <li ng-if="main.isLoggedIn()" class="nav-item"><a ng-click="main.logout()" class="nav-link">Logout</a></li>
         </ul>
       </nav>
-
-
-
     </header>
+    <p ng-if="main.message">{{ main.message }}</p>
     <main class="container" ui-view>
 
     </main>

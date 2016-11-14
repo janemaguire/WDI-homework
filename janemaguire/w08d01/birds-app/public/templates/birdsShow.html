@@ -4,8 +4,8 @@
   <h4>{{ birdsShow.bird.breed }}</h4>
   <img ng-src="{{ birdsShow.bird.image }}">
   <br>
-  <button ui-sref="birdsEdit({id: birdsShow.bird._id})" class="btn btn-primary">Edit</button>
-  <button ng-click="birdsShow.delete()" class="btn btn-primary">Delete</button>
+  <button ng-if="main.isLoggedIn()" ui-sref="birdsEdit({id: birdsShow.bird._id})" class="btn btn-primary">Edit</button>
+  <button ng-if="main.isLoggedIn()" ng-click="birdsShow.delete()" class="btn btn-primary">Delete</button>
   <br>
 
 </section>

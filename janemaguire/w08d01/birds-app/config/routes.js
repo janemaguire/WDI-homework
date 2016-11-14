@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const birdsController = require('../controllers/birds');
 const authController = require('../controllers/auth');
+const secureRoute = require('../lib/secureRoute');
 
 router
   .post('/login', authController.login)
@@ -8,11 +9,11 @@ router
 
 router.route('/birds')
   .get(birdsController.index)
-  .post(birdsController.create);
+  .post(secureRoute, birdsController.create);
 
 router.route('/birds/:id')
   .get(birdsController.show)
-  .put(birdsController.update)
-  .delete(birdsController.delete);
+  .put(secureRoute, birdsController.update)
+  .delete(secureRoute, birdsController.delete);
 
 module.exports = router;
