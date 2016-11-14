@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="birdsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Weekend Homework</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" media="screen" title="no title">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/js/controllers/birds.js" charset="utf-8"></script>
+    <script src="/js/controllers/auth.js" charset="utf-8"></script>
+    <script src="/js/models/bird.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bird buddies</h1>
+      <nav>
+        <ul class="nav nav-tabs">
+          <li class="nav-item"><a ui-sref="birdsIndex" ui-sref-active="active" class="nav-link">Birds</a></li>
+          <li class="nav-item"><a ui-sref="birdsNew" ui-sref-active="active" class="nav-link">New Bird</a></li>
+          <li class="nav-item"><a ui-sref="register" ui-sref-active="active" class="nav-link">Register</a></li>
+          <li class="nav-item"><a ui-sref="login" ui-sref-active="active" class="nav-link">Login</a></li>
+        </ul>
+      </nav>
+
+
+
+    </header>
+    <main class="container" ui-view>
+
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  </body>
+</html>

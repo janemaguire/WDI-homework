@@ -1,0 +1,18 @@
+<section class="edit">
+  <form ng-submit="birdsEdit.update()">
+    <div>
+      <label>Name </label>
+      <input type="text" name="name" placeholder="Name" ng-model="birdsEdit.bird.name" class="u-full-width">
+    </div>
+    <div>
+      <label>Breed</label>
+      <input type="text" name="breed" placeholder="Breed" ng-model="birdsEdit.bird.breed" class="u-full-width">
+    </div>
+    <div>
+      <label>Image</label>
+      <input type="text" name="image" placeholder="Image" ng-model="birdsEdit.bird.image" class="u-full-width">
+    </div>
+    <br>
+    <button class="btn btn-primary">Update</button>
+  </form>
+</section>
