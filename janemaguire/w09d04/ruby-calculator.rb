@@ -1,9 +1,9 @@
 calc = true
 while calc do
 
-  p "Enter your first number and hit return"
+  p "Enter your first number"
   input_one = gets.to_f
-  p "Choose from +, -, *, /, ^, sq or moon and hit return"
+  p "Choose from +, -, *, /, ^, sq, moon or sugar"
   operator = gets.chomp
 
   if operator == "sq"
@@ -12,7 +12,7 @@ while calc do
     puts (input_one) * (0.2)
   else
 
-    p "Enter your second number and hit return"
+    p "Enter your second number"
     input_two = gets.to_f
 
     if operator == "+"
@@ -25,6 +25,14 @@ while calc do
       puts "Your answer is " + (input_one / input_two).to_s
     elsif operator == "^"
       puts "Your answer is " + (input_one ** input_two).to_s
+    elsif operator == "sugar"
+      if input_one > 5
+        puts (input_two * 0.18).to_s + "p"
+      elsif input_one > 8
+        puts (input_two * 0.24).to_s + "p"
+      else
+        puts "0p"
+      end
     end
   end
 
