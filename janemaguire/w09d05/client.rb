@@ -10,4 +10,8 @@ class Client
     @pets = []
   end
 
+  def to_s
+  "#{first_name}, #{last_name}, #{pets}"
+  end
+
 end
