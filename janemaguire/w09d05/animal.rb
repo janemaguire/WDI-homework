@@ -12,11 +12,12 @@ class Animal
     @toys = []
   end
 
+  def to_s
+  "#{name}, #{breed}, #{gender}, #{toys}"
+  end
+
+  def add_toys(toys)
+    @toys << toys
+  end
+
 end
-
-animal = Animal.new "bob", "raccoon", "m", ["bat", "ball"]
-
-puts animal.name
-puts animal.breed
-puts animal.gender
-puts animal.toys
