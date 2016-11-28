@@ -1,3 +1,13 @@
-<h1>Translation</h1>
+<div class="container">
 
-<%= @translation %>
+  <h1><%= @translation %>!</h1>
+
+  <h2><%= @words %> in pig latin is...<%= @translation %></h2>
+
+  <h3>Come back for more translations soon</h3>
+
+  <form class="form" action="/" method="get">
+    <button type="submit" name="button">Translate more</button>
+  </form>
+
+</div>

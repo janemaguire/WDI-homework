@@ -7,6 +7,7 @@ get "/" do
 end
 
 post "/translation" do
+  @words = params[:words]
   @translation = PigLatin.translate params[:words]
   erb :answer
 end

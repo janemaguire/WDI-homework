@@ -1,0 +1,56 @@
+body {
+  background-image: url("http://jamesrayneau.files.wordpress.com/2014/10/piglets-wallpapers-9.jpg");
+  color: white;
+  font-family: sans-serif;
+  font-style: italic;
+  padding: 40px;
+}
+
+.container {
+    max-width: 500px;
+}
+
+h1  {
+  font-size: 40px;
+  color: lightpink;
+}
+
+h2  {
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+h3  {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+input {
+  width: 500px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  float: left;
+  border: 0;
+}
+
+input:focus {
+  outline-color: lightpink;
+}
+
+button {
+  margin-top: 24px;
+  font-size: 18px;
+  background-color: lightpink;
+  border-color: lightpink;
+  color: white;
+  padding: 5px 20px;
+  font-family: sans-serif;
+  font-style: italic;
+  border-radius: 5px;
+  border: 0;
+}
+
+button:focus {
+  outline-color: white;
+}
