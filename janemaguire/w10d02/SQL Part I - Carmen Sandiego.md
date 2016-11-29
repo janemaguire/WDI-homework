@@ -13,7 +13,11 @@ And figure out where Carmen's headed, so we can catch her and bring her in.
 **Clue #1:** We recently got word that someone fitting Carmen Sandiego's description has been traveling through Southern Europe. She's most likely traveling someplace where she won't be noticed, so find the least populated country in Southern Europe, and we'll start looking for her there.
 
 ```SQL
-SELECT name FROM country WHERE region = 'Southern Europe' ORDER BY population LIMIT 1;
+SELECT name
+FROM country
+WHERE region = 'Southern Europe'
+ORDER BY population
+LIMIT 1;
 ```
 **Answer:**
 Holy See (Vatican City State)
@@ -21,7 +25,10 @@ Holy See (Vatican City State)
 **Clue #2:** Now that we're here, we have insight that Carmen was seen attending language classes in this country's officially recognized language. Check our databases and find out what language is spoken in this country, so we can call in a translator to work with you.
 
 ```SQL
-SELECT language FROM countrylanguage WHERE countrycode = (SELECT code FROM country WHERE name LIKE '%Vatican%');
+SELECT language
+FROM countrylanguage
+WHERE countrycode =
+  (SELECT code FROM country WHERE name LIKE '%Vatican%');
 ```
 **Answer:**
 Italian
@@ -29,7 +36,10 @@ Italian
 **Clue #3:** We have new news on the classes Carmen attended – our gumshoes tell us she's moved on to a different country, a country where people speak *only* the language she was learning. Find out which nearby country speaks nothing but that language.
 
 ```SQL
-SELECT name from country WHERE code = (SELECT countrycode FROM countrylanguage WHERE "language" = 'Italian' AND percentage = 100);
+SELECT name
+FROM country
+WHERE code =
+  (SELECT countrycode FROM countrylanguage WHERE "language" = 'Italian' AND percentage = 100);
 ```
 **Answer:**
 San Marino
@@ -37,7 +47,10 @@ San Marino
 **Clue #4:** We're booking the first flight out – maybe we've actually got a chance to catch her this time. There are only two cities she could be flying to in the country. One is named the *same* as the country – that would be too obvious. We're following our gut on this one; find out what other city in that country she might be flying to.
 
 ```SQL
-SELECT name FROM city WHERE countrycode = (SELECT code FROM country WHERE name = 'San Marino') AND name != 'San Marino';
+SELECT name
+FROM city
+WHERE countrycode =
+  (SELECT code FROM country WHERE name = 'San Marino') AND name != 'San Marino';
 
 ```
 **Answer:**
@@ -48,7 +61,10 @@ Serra
 ```SQL
 SELECT name FROM city WHERE name LIKE 'Serra%';
 
-SELECT name FROM country WHERE code = (SELECT countrycode FROM city WHERE name ='Serra');
+SELECT name
+FROM country
+WHERE code =
+  (SELECT countrycode FROM city WHERE name ='Serra');
 
 ```
 **Answer:**
@@ -57,7 +73,10 @@ Brazil
 **Clue #6:** We're close! Our South American agent says she just got a taxi at the airport, and is headed towards the capital! Look up the country's capital, and get there pronto! Send us the name of where you're headed and we'll follow right behind you!
 
 ```SQL
-SELECT name FROM city WHERE id = (SELECT capital FROM country WHERE code = (SELECT code FROM country WHERE name ='Brazil'));
+SELECT name
+FROM city
+WHERE id =
+  (SELECT capital FROM country WHERE code = (SELECT code FROM country WHERE name ='Brazil'));
 ```
 **Answer:**
 Brasilia
@@ -77,7 +96,11 @@ We're counting on you, gumshoe. Find out where she's headed, send us the info, a
 
 ```SQL
 SELECT name FROM city WHERE population = 91084;
-SELECT name FROM country WHERE code = (SELECT countrycode FROM city WHERE population = 91084);
+
+SELECT name
+FROM country
+WHERE code =
+  (SELECT countrycode FROM city WHERE population = 91084);
 ```
 **Answer:**
 Santa Monica
