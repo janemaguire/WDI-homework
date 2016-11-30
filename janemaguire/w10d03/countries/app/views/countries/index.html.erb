@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Countries</h1>
+<h1>All Countries</h1>
 
 <table>
   <thead>
@@ -24,9 +24,9 @@
         <td><%= number_with_delimiter(country.population, :delimiter => ',') %></td>
         <td><%= country.language %></td>
         <td><%= country.continent.name %></td>
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="link"><%= link_to 'Show', country %></td>
+        <td class="link"><%= link_to 'Edit', edit_country_path(country) %></td>
+        <td class="link"><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

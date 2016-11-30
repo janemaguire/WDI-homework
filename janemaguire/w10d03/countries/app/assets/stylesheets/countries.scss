@@ -1,3 +1,42 @@
 // Place all the styles related to the countries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #d9d9d9;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.nav-link {
+    padding: 10px;
+    color: hotpink;
+}
+
+h1 {
+    padding: 50px 0px;
+}
+
+a {
+  color: hotpink;
+}
+
+table thead tr {
+  font-size: 20px;
+  height: 60px;
+  border-bottom: 1px solid white;
+}
+
+table tbody tr {
+  height: 100px;
+  td {
+    min-width: 140px;
+    max-width: 200px;
+    border-bottom: 1px solid white;
+  }
+  .link {
+    max-width: 50px;
+  }
+}
