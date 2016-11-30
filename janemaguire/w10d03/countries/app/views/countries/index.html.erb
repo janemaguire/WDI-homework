@@ -18,7 +18,7 @@
     <% @countries.each do |country| %>
       <tr>
         <td><%= country.name %></td>
-        <td><%= country.image %></td>
+        <td><%= image_tag country.image, width: 100 %></td>
         <td><%= country.size %></td>
         <td><%= country.population %></td>
         <td><%= country.language %></td>
