@@ -36,6 +36,11 @@
     <%= f.text_field :language %>
   </div>
 
+  <div class="field">
+    <%= f.label :continent %>
+    <%= f.collection_select :continent_id, Continent.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
