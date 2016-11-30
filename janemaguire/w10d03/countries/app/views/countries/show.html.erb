@@ -12,12 +12,12 @@
 
 <p>
   <strong>Size:</strong>
-  <%= @country.size %>
+  <%= number_with_delimiter(@country.size, :delimiter => ',') %> km sq
 </p>
 
 <p>
   <strong>Population:</strong>
-  <%= @country.population %>
+  <%= number_with_delimiter(@country.population, :delimiter => ',') %>
 </p>
 
 <p>
@@ -26,7 +26,7 @@
 </p>
 
 <p>
-  <strong>Continent</strong>
+  <strong>Continent:</strong>
   <%= @country.continent.name %>
 </p>
 
