@@ -23,8 +23,10 @@
         <td><%= bird.age %></td>
         <td><%= bird.toys %></td>
         <td><%= link_to 'Show', bird %></td>
-        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if logged_in? %>
+          <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+          <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
