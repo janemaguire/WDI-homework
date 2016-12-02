@@ -1,0 +1,1 @@
+json.array! @queens, partial: 'queens/queen', as: :queen
