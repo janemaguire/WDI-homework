@@ -19,6 +19,7 @@
     <% @queens.each do |queen| %>
       <tr>
         <td><%= queen.name %></td>
+        <td><%= image_tag queen.image, width: 200 %></td>
         <td><%= queen.description %></td>
         <td><%= queen.nationality %></td>
         <td><%= queen.hometown %></td>

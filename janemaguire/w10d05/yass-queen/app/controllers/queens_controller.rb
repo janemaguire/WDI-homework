@@ -1,5 +1,6 @@
 class QueensController < ApplicationController
   before_action :set_queen, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   # GET /queens
   # GET /queens.json

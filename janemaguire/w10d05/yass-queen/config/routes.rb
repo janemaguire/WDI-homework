@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :venues
   root 'queens#index'
   get '/register', to: 'users#new'
   post '/register', to: 'users#create'
