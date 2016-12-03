@@ -18,7 +18,7 @@ rvt = Venue.create!(
 
 pantibar = Venue.create!(
   name:"PantiBar",
-  image: "http://www.outmag.co.uk/site/images/stories/royalvauxhalltavern2.png",
+  image: "http://www.independent.ie/incoming/article34772332.ece/ALTERNATES/h342/pa.jpg",
   city: "Dublin",
   country: "Ireland",
   opened: "2007"
@@ -26,7 +26,7 @@ pantibar = Venue.create!(
 
 pyramid = Venue.create!(
   name:"Pyramid Club",
-  image: "http://www.outmag.co.uk/site/images/stories/royalvauxhalltavern2.png",
+  image: "https://thenypost.files.wordpress.com/2015/02/rupaul1.jpg?quality=90&strip=all",
   city: "New York",
   country: "USA",
   opened: "1979"
@@ -34,7 +34,7 @@ pyramid = Venue.create!(
 
 cruz = Venue.create!(
   name:"Cruz 101",
-  image: "http://www.outmag.co.uk/site/images/stories/royalvauxhalltavern2.png",
+  image: "http://www.gaylifemanchester.com/wp-content/uploads/2013/07/cruz-101.jpg",
   city: "Manchester",
   country: "UK",
   opened: "1992"
@@ -42,7 +42,7 @@ cruz = Venue.create!(
 
 jacques = Venue.create!(
   name:"Jacque’s Cabaret",
-  image: "http://www.outmag.co.uk/site/images/stories/royalvauxhalltavern2.png",
+  image: "https://bosguydotcom.files.wordpress.com/2015/04/jacques.png",
   city: "Boston",
   country: "USA",
   opened: "1938"
