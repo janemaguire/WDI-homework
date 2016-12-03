@@ -6,14 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ActiveRecord::Base.connection.execute("TRUNCATE queens RESTART IDENTITY")
+# ActiveRecord::Base.connection.execute("TRUNCATE venues RESTART IDENTITY")
+ActiveRecord::Base.connection.execute("TRUNCATE queens, venues RESTART IDENTITY")
 
 rvt = Venue.create!(
   name:"Royal Vauxhall Tavern",
   image: "http://www.outmag.co.uk/site/images/stories/royalvauxhalltavern2.png",
   city: "London",
   country: "UK",
-  opened: "1863"
+  opened: 1863
 )
 
 pantibar = Venue.create!(
@@ -21,7 +22,7 @@ pantibar = Venue.create!(
   image: "http://www.independent.ie/incoming/article34772332.ece/ALTERNATES/h342/pa.jpg",
   city: "Dublin",
   country: "Ireland",
-  opened: "2007"
+  opened: 2007
 )
 
 pyramid = Venue.create!(
@@ -29,7 +30,7 @@ pyramid = Venue.create!(
   image: "https://thenypost.files.wordpress.com/2015/02/rupaul1.jpg?quality=90&strip=all",
   city: "New York",
   country: "USA",
-  opened: "1979"
+  opened: 1979
 )
 
 cruz = Venue.create!(
@@ -37,7 +38,7 @@ cruz = Venue.create!(
   image: "http://www.gaylifemanchester.com/wp-content/uploads/2013/07/cruz-101.jpg",
   city: "Manchester",
   country: "UK",
-  opened: "1992"
+  opened: 1992
 )
 
 jacques = Venue.create!(
@@ -45,7 +46,7 @@ jacques = Venue.create!(
   image: "https://bosguydotcom.files.wordpress.com/2015/04/jacques.png",
   city: "Boston",
   country: "USA",
-  opened: "1938"
+  opened: 1938
 )
 
 lily = Queen.create!(
@@ -57,7 +58,7 @@ lily = Queen.create!(
   catchphrases: "If I wanted your opinion, I'd slap it outta ya",
   website: ""
 )
-lily.venues << Venue.find_by_name(rvt.name)
+# lily.venues << Venue.find_by_name(rvt.name)
 
 myra = Queen.create!(
   name: "Myra DuBois",
@@ -68,7 +69,7 @@ myra = Queen.create!(
   catchphrases: "",
   website: "http://www.myradubois.co.uk/"
 )
-myra.venues << Venue.find_by_name(rvt.name)
+# myra.venues << Venue.find_by_id(rvt.id)
 
 jujubee = Queen.create!(
   name: "Jujubee",
@@ -79,7 +80,7 @@ jujubee = Queen.create!(
   catchphrases: "I feel like I'm super hero diva and my power is glitter, I want fried chicken now",
   website: "http://www.jujubeeonline.com/"
 )
-jujubee.venues << Venue.find_by_name(jacques.name)
+# jujubee.venues << Venue.find_by_name(jacques.name)
 
 tina = Queen.create!(
   name: "Tina C",
@@ -90,7 +91,7 @@ tina = Queen.create!(
   catchphrases: "If you can't live without me, why weren't you dead when I met you?,",
   website: "http://www.christophergreen.net/tina-c/"
 )
-tina.venues << Venue.find_by_name(jacques.name)
+# tina.venues << Venue.find_by_name(rvt.name)
 
 tim = Queen.create!(
   name: "Timberlina",
@@ -101,7 +102,7 @@ tim = Queen.create!(
   catchphrases: "It's a rollover!",
   website: "http://www.timberlina.co.uk/"
 )
-tim.venues << Venue.find_by_name(rvt.name)
+# tim.venues << Venue.find_by_name(rvt.name)
 
 ru = Queen.create!(
   name: "RuPaul",
@@ -112,7 +113,7 @@ ru = Queen.create!(
   catchphrases: "If you don't love yourself, how in the hell you gonna love somebody else?, We're born naked, and the rest is drag.",
   website: "http://www.rupaul.com/"
 )
-ru.venues << Venue.find_by_name(pyramid.name)
+# ru.venues << Venue.find_by_name(pyramid.name)
 
 liq = Queen.create!(
   name: "Liquorice Black",
@@ -123,7 +124,7 @@ liq = Queen.create!(
   catchphrases: "",
   website: "https://www.instagram.com/liquorice_black/"
   )
-liq.venues << Venue.find_by_name(cruz.name)
+# liq.venues << Venue.find_by_name(cruz.name)
 
 panti = Queen.create!(
   name: "Panti Bliss",
@@ -131,7 +132,7 @@ panti = Queen.create!(
   description: "",
   nationality: "Irish",
   hometown: "Dublin",
-  catchphrases: "",
+  catchphrases: "I am thoroughly, deeply, delightedly happy to be gay. It suits me! I'm really good at it.",
   website: "https://twitter.com/PantiBliss"
   )
-panti.venues << Venue.find_by_name(pantibar.name)
+# panti.venues << Venue.find_by_name(pantibar.name)

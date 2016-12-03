@@ -34,5 +34,12 @@
   <%= @queen.website %>
 </p>
 
+<p>
+  <strong>Venues:</strong>
+    <% @queen.venues.each do |venue| %>
+      <%= venue.name %>
+    <% end %>
+</p>
+
 <%= link_to 'Edit', edit_queen_path(@queen) %> |
 <%= link_to 'Back', queens_path %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YassQueen</title>
+    <title>Yass Queen</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,7 +14,7 @@
         <ul>
           <li><%= link_to "Home", root_path %></li>
           <% if logged_in? %>
-            <li>Hello, <%= current_user.email %></li>
+            <li>Hello, <%= current_user.username %></li>
             <li><%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %></li>
           <% else %>
             <li><%= link_to "Register", register_path %></li>

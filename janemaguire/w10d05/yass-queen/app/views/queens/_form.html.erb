@@ -41,6 +41,11 @@
     <%= f.text_field :website %>
   </div>
 
+  <div class="field">
+    <%= f.label :venues %>
+    <%= f.collection_check_boxes :venue_ids, Venue.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
