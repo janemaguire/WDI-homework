@@ -1,42 +1,37 @@
 <p id="notice"><%= notice %></p>
+<main>
+  <h1>
+    <%= @queen.name %>
+  </h1>
 
-<h1>
-  <%= @queen.name %>
-</h1>
+  <p>
+    <%= image_tag @queen.image, width: 400 %>
+  </p>
 
-<p>
-  <%= image_tag @queen.image, width:300 %>
-</p>
+  <p>
+    <%= @queen.description %>
+  </p>
 
-<p>
-  <%= @queen.description %>
-</p>
+  <p>
+    <%= @queen.name %> is <%= @queen.nationality %> and her home town is <%= @queen.hometown %>
+  </p>
 
-<p>
-  <strong>Nationality:</strong>
-  <%= @queen.nationality %>
-</p>
+  <p>
+    <strong>Quotes:</strong>
+    <%= @queen.catchphrases %>
+  </p>
 
-<p>
-  <strong>Hometown:</strong>
-  <%= @queen.hometown %>
-</p>
+  <p>
+    <strong>Venues:</strong>
+      <%= @queen.name %> has performed at <% @queen.venues.each do |venue| %>
+        <%= venue.name %>
+      <% end %>
+  </p>
 
-<p>
-  <strong>Quotes:</strong>
-  <%= @queen.catchphrases %>
-</p>
+  <p>
+    <a href="<%= @queen.website %>">Website</a>
+  </p>
 
-<p>
-  <strong>Venues:</strong>
-    <%= @queen.name %> has performed at <% @queen.venues.each do |venue| %>
-      <%= venue.name %>
-    <% end %>
-</p>
-
-<p>
-  <a href="<%= @queen.website %>">Website</a>
-</p>
-
-<%= link_to 'Edit this queen', edit_queen_path(@queen) %> |
-<%= link_to 'All queens', queens_path %>
+  <%= link_to 'Edit this queen', edit_queen_path(@queen) %> |
+  <%= link_to 'All queens', queens_path %>
+</main>
