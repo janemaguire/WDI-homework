@@ -1,34 +1,18 @@
 <p id="notice"><%= notice %></p>
+<main>
+  <h1>
+    <%= @venue.name %>
+  </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @venue.name %>
-</p>
+  <p>
+    <%= image_tag @venue.image, width: 400 %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @venue.image %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @venue.city %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @venue.country %>
-</p>
-
-<p>
-  <strong>Opened:</strong>
-  <%= @venue.opened %>
-</p>
-
-<p>
-  <strong>Closed:</strong>
-  <%= @venue.closed %>
-</p>
-
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+  <p>
+    <%= @venue.name %> is a bar in <%= @venue.city %>, <%= @venue.country %>. It first opened in <%= @venue.opened %>.
+  </p>
+  <p>
+    <%= link_to 'Edit this venue', edit_venue_path(@venue) %> |
+    <%= link_to 'All venues', venues_path %>
+  </p>
+</main>

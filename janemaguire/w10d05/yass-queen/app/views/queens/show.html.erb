@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @queen.name %>
-</p>
+</h1>
 
 <p>
   <%= image_tag @queen.image, width:300 %>
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @queen.description %>
 </p>
 
@@ -25,21 +23,20 @@
 </p>
 
 <p>
-  <strong>Catchphrases:</strong>
+  <strong>Quotes:</strong>
   <%= @queen.catchphrases %>
 </p>
 
 <p>
-  <strong>Website:</strong>
-  <%= @queen.website %>
-</p>
-
-<p>
   <strong>Venues:</strong>
-    <% @queen.venues.each do |venue| %>
+    <%= @queen.name %> has performed at <% @queen.venues.each do |venue| %>
       <%= venue.name %>
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_queen_path(@queen) %> |
-<%= link_to 'Back', queens_path %>
+<p>
+  <a href="<%= @queen.website %>">Website</a>
+</p>
+
+<%= link_to 'Edit this queen', edit_queen_path(@queen) %> |
+<%= link_to 'All queens', queens_path %>

@@ -16,7 +16,8 @@
             <li class="msg" role="presentation">Hello <%= current_user.username %>, welcome to Yass Queen</li>
           <% end %>
 
-          <li role="presentation" class="active"><%= link_to "Home", root_path %></li>
+          <li role="presentation" class="active"><%= link_to "Venues", venues_path %></li>
+          <li role="presentation" class="active"><%= link_to "Queens", root_path %></li>
 
           <% if logged_in? %>
             <li><%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %></li>

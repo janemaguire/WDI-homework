@@ -20,17 +20,20 @@ nav {
   font-weight: 700;
   font-size: 24px;
   }
+
   .msg {
     float: left;
     color: orchid;
     font-style: italic;
     font-weight: 400;
   }
+
+
   a:link {
-    color: darkviolet;
+    color: deeppink;
   }
   a:visited {
-    color: darkviolet;
+    color: deeppink;
   }
   a:hover {
     color: orchid;
@@ -41,6 +44,7 @@ nav {
 
 main {
   padding: 40px;
+  // text-align: center;
 }
 
 h1 {
@@ -58,11 +62,9 @@ h1 {
 img {
   border: solid white 10px;
   border-radius: 5px;
+  margin: 10px;
 }
 
-table {
-  text-align: center;
-}
   thead tr {
     font-size: 20px;
     height: 60px;
@@ -70,7 +72,7 @@ table {
 }
 
 table tbody tr {
-  height: 180px;
+  max-width: 94%;
   td {
     font-size: 20px;
     min-width: 140px;
