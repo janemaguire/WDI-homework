@@ -10,15 +10,6 @@
 
   <body>
     <header>
-      <!-- <nav class="navbar" role="navigation">
-        <ul class="nav nav-pills">
-          <li role="presentation"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">Profile</a></li>
-          <li role="presentation"><a href="#">Messages</a></li>
-        </ul>
-      </nav> -->
-
-
       <nav class="navbar" role="navigation">
         <ul class="nav nav-pills">
           <% if logged_in? %>
@@ -41,6 +32,8 @@
     <%= message %>
   </div>
 <% end %>
+  <main>
     <%= yield %>
+  </main>
   </body>
 </html>

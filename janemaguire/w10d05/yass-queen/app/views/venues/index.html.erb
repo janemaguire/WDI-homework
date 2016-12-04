@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Venues</h1>
+  <h1>Venues</h1>
+  <p class="intro">Find out more about some of the best drag and cabaret venues in the world. Are we missing a great bar? Let us know! <%= link_to 'Add a new venue', new_venue_path %></p>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Image</th>
+      <th>Name</th>
       <th>City</th>
       <th>Country</th>
       <th>Opened</th>
@@ -17,19 +18,17 @@
   <tbody>
     <% @venues.each do |venue| %>
       <tr>
-        <td><%= venue.name %></td>
         <td><%= image_tag venue.image, width: 200 %></td>
+        <td><%= venue.name %></td>
         <td><%= venue.city %></td>
         <td><%= venue.country %></td>
         <td><%= venue.opened %></td>
-        <td><%= link_to 'Show', venue %></td>
-        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-        <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Find out more', venue %></td>
+        <td><%= link_to 'Edit this venue', edit_venue_path(venue) %></td>
+        <td><%= link_to 'Delete', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Venue', new_venue_path %>

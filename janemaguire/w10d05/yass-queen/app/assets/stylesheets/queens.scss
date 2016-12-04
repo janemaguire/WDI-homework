@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: #F08080;
+  background-image: url("http://creativity103.com/collections/GlitterGold/purple_glitter.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: white;
 }
 
@@ -19,22 +22,63 @@ nav {
   }
   .msg {
     float: left;
-    color: lightgrey;
+    color: orchid;
+    font-style: italic;
+    font-weight: 400;
   }
   a:link {
-    color: #F08080;
+    color: darkviolet;
   }
   a:visited {
-    color: #F08080;
+    color: darkviolet;
   }
   a:hover {
-    color: grey;
+    color: orchid;
   }
   a:active {
-    color: lightgrey;
+    color: lavender;
   }
 
+main {
+  padding: 40px;
+}
+
+h1 {
+  padding: 40px;
+  text-align: center;
+  font-size: 60px;
+}
+
+.intro {
+  text-align: center;
+  padding: 20px;
+  font-size: 26px;
+
+}
 img {
   border: solid white 10px;
   border-radius: 5px;
+}
+
+table {
+  text-align: center;
+}
+  thead tr {
+    font-size: 20px;
+    height: 60px;
+    border-bottom: 1px solid white;
+}
+
+table tbody tr {
+  height: 180px;
+  td {
+    font-size: 20px;
+    min-width: 140px;
+    max-width: 250px;
+    border-bottom: 1px solid white;
+    padding: 10px;
+  }
+  .link {
+    max-width: 50px;
+  }
 }
