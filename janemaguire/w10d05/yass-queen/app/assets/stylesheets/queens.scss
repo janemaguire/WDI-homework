@@ -4,4 +4,37 @@
 
 body {
   background-color: #F08080;
+  color: white;
+}
+
+nav {
+  background-color: white;
+}
+  ul li {
+  display: inline;
+  float: right;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 24px;
+  }
+  .msg {
+    float: left;
+    color: lightgrey;
+  }
+  a:link {
+    color: #F08080;
+  }
+  a:visited {
+    color: #F08080;
+  }
+  a:hover {
+    color: grey;
+  }
+  a:active {
+    color: lightgrey;
+  }
+
+img {
+  border: solid white 10px;
+  border-radius: 5px;
 }
